@@ -35,8 +35,8 @@ export const CENARIO_DE_EXEMPLO: Cenario = {
               fatia: 0.7,
               no: {
                 tipo: 'grupo',
-                id: 'empresa-dos-socios',
-                nome: 'Empresa dos sócios',
+                id: 'projeto-do-estudio',
+                nome: 'Projeto do Estudio',
                 partes: [
                   { fatia: 0.3, no: { tipo: 'socio', idSocio: 'socio-1' } },
                   { fatia: 0.3, no: { tipo: 'socio', idSocio: 'socio-2' } },
