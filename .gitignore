@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.wrangler/
+coverage/
+*.tsbuildinfo
+*.log
+*.local
+
+.env
+.env.*
+!.env.example
+
+.DS_Store
+Thumbs.db
+.vscode/
+
+simulador-gato-padeiro.html

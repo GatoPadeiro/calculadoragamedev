@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Gato Padeiro">
+  <path d="M22 58c-9-4-12-14-7-23 6-11 21-16 45-16s39 5 45 16c5 9 2 19-7 23v44a8 8 0 0 1-8 8H30a8 8 0 0 1-8-8z"
+        fill="#fbfaf6" stroke="#1d1a17" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M40 98c-4-6-5-14-3-22l-3-18 13 8c4-2 9-3 13-3s9 1 13 3l13-8-3 18c2 8 1 16-3 22z" fill="#1d1a17"/>
+  <path d="M44 60c-6-1-9-6-7-11 2-6 9-8 13-5 2-5 7-7 10-7s8 2 10 7c4-3 11-1 13 5 2 5-1 10-7 11v6H44z"
+        fill="#fbfaf6" stroke="#1d1a17" stroke-width="4" stroke-linejoin="round"/>
+  <ellipse cx="51" cy="82" rx="3.2" ry="4" fill="#fbfaf6"/>
+  <ellipse cx="69" cy="82" rx="3.2" ry="4" fill="#fbfaf6"/>
+  <path d="M57 90h6l-3 3z" fill="#fbfaf6"/>
+</svg>
