@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import type { ResultadoDoCenario } from '../../calculo/calcularCenario';
 import type { Socio } from '../../calculo/tipos';
-import { COR_DA_TINTA, COR_DO_PAPEL, CORES_DA_ANATOMIA, corDoSocio } from '../cores';
+import { COR_DA_TINTA, COR_DO_PAINEL, COR_DO_PAPEL, COR_DO_TEXTO, CORES_DA_ANATOMIA, corDoSocio } from '../cores';
 import { formatarPercentual, formatarReais } from '../formatacao';
 import { posicionarRotulos } from './posicionarRotulos';
 
@@ -78,7 +78,7 @@ function montarPecasDosSocios(resultado: ResultadoDoCenario, socios: Socio[]): P
     return [{ id: `socio-${socio.id}`, nome: socio.nome || `Sócio ${posicao + 1}`, valor, fundo: cor.fundo, texto: cor.texto, ehDeSocio: true }];
   });
   if (resultado.divisao.valorSemDono > VALOR_DESPREZIVEL) {
-    pecas.push({ id: 'sem-dono', nome: 'Sem dono (divisão < 100%)', valor: resultado.divisao.valorSemDono, fundo: COR_DO_PAPEL, texto: COR_DA_TINTA, ehSemDono: true });
+    pecas.push({ id: 'sem-dono', nome: 'Sem dono (divisão < 100%)', valor: resultado.divisao.valorSemDono, fundo: COR_DO_PAINEL, texto: COR_DO_TEXTO, ehSemDono: true });
   }
   return pecas;
 }

@@ -15,6 +15,13 @@
   --err-ink: #8c140d;
   --warn-bg: #fff3c4;
   --warn-ink: #574300;
+  --on-ink: #ffffff;
+  --on-yellow: #111114;
+  --action-text: #e1261c;
+  --chrome: #111114;
+  --scrollbar: #9a9a93;
+  --socio-preto: #111114;
+  --socio-preto-texto: #ffffff;
 
   --f-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
   --f-body: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
@@ -27,6 +34,31 @@
   color-scheme: light;
 }
 
+@media screen {
+  :root[data-tema='escuro'] {
+    --ink: #ebebe5;
+    --paper: #121215;
+    --panel: #1b1b20;
+    --line: #34343b;
+    --line-strong: #ebebe5;
+    --muted: #b3b3ad;
+    --faint: #9a9aa0;
+    --action-text: #ff6b5e;
+    --computed-line: #75756f;
+    --err-bg: #3b1613;
+    --err-ink: #ffb4ab;
+    --warn-bg: #362d0c;
+    --warn-ink: #ffe08a;
+    --on-ink: #111114;
+    --chrome: #0a0a0c;
+    --scrollbar: #55555c;
+    --socio-preto: #ebebe5;
+    --socio-preto-texto: #111114;
+
+    color-scheme: dark;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -35,7 +67,7 @@
 
 html {
   -webkit-text-size-adjust: 100%;
-  scrollbar-color: #9a9a93 var(--paper);
+  scrollbar-color: var(--scrollbar) var(--paper);
 }
 
 body {
@@ -50,7 +82,7 @@ body {
 
 ::selection {
   background: var(--yellow);
-  color: var(--ink);
+  color: var(--on-yellow);
 }
 
 :focus-visible {
@@ -65,7 +97,7 @@ a {
   text-underline-offset: 3px;
 }
 a:hover {
-  color: var(--action);
+  color: var(--action-text);
 }
 
 button {
@@ -110,6 +142,7 @@ input,
   top: -60px;
   z-index: 50;
   background: var(--yellow);
+  color: var(--on-yellow);
   padding: 8px 12px;
   font-weight: 600;
 }
@@ -122,7 +155,7 @@ input,
 }
 
 .topbar {
-  background-color: var(--ink);
+  background-color: var(--chrome);
   background-image: linear-gradient(rgb(255 255 255 / 0.08) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
   background-position: -1px -1px;
@@ -224,6 +257,26 @@ input,
   border-radius: 0;
 }
 
+.theme-btn {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid rgb(255 255 255 / 0.22);
+  border-radius: var(--r);
+  background: transparent;
+  color: #e9e9e4;
+  cursor: pointer;
+  transition: background-color 160ms var(--ease), color 160ms var(--ease), border-color 160ms var(--ease);
+}
+.theme-btn:hover {
+  color: #fff;
+  border-color: var(--yellow);
+  background: rgb(255 255 255 / 0.08);
+}
+
 .btn-primary,
 .btn-line,
 .btn-text,
@@ -259,11 +312,11 @@ input,
 }
 .btn-line svg,
 .btn-text svg {
-  color: var(--action);
+  color: var(--action-text);
 }
 .btn-line:hover {
   border-color: var(--action);
-  color: var(--action);
+  color: var(--action-text);
 }
 .btn-text {
   background: none;
@@ -278,7 +331,7 @@ input,
   text-underline-offset: 3px;
 }
 .btn-text:hover {
-  color: var(--action);
+  color: var(--action-text);
 }
 .icon-btn {
   width: 36px;
@@ -289,7 +342,7 @@ input,
   color: var(--muted);
 }
 .icon-btn:hover {
-  color: var(--action);
+  color: var(--action-text);
   border-color: var(--line);
 }
 button:disabled {
@@ -444,7 +497,7 @@ button:disabled {
   height: 26px;
   padding: 0 6px;
   background: var(--ink);
-  color: #fff;
+  color: var(--on-ink);
   font: 600 13px/1 var(--f-mono);
   border-radius: 2px;
 }
@@ -658,8 +711,8 @@ button:disabled {
   content: '';
   width: 5px;
   height: 10px;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
+  border-right: 2px solid var(--on-ink);
+  border-bottom: 2px solid var(--on-ink);
   transform: translateY(-1px) rotate(45deg);
 }
 .toggle input:focus-visible + .toggle-box {
@@ -849,14 +902,14 @@ button:disabled {
 .fx-lock:has(input:checked) {
   background: var(--ink);
   border-color: var(--ink);
-  color: #fff;
+  color: var(--on-ink);
 }
 .fx-lock:has(input:focus-visible) {
   outline: 2px solid var(--action);
   outline-offset: 2px;
 }
 .fx-lock:hover {
-  color: var(--action);
+  color: var(--action-text);
   border-color: var(--action);
 }
 
@@ -989,7 +1042,7 @@ button:disabled {
   border-right: 0;
 }
 .anat-seg.is-orphan {
-  background-image: repeating-linear-gradient(135deg, transparent 0 5px, rgb(17 17 20 / 0.25) 5px 6px) !important;
+  background-image: repeating-linear-gradient(135deg, transparent 0 5px, color-mix(in srgb, var(--ink) 25%, transparent) 5px 6px) !important;
 }
 .anat-bracket {
   position: absolute;
@@ -1030,7 +1083,7 @@ button:disabled {
   padding: 0 3px;
   margin-right: 6px;
   background: var(--ink);
-  color: #fff;
+  color: var(--on-ink);
   font: 600 11px/1 var(--f-mono);
   border-radius: 2px;
   vertical-align: 1px;
@@ -1057,7 +1110,7 @@ button:disabled {
   width: 12px;
   height: 12px;
   border-radius: 2px;
-  outline: 1px solid rgb(17 17 20 / 0.4);
+  outline: 1px solid color-mix(in srgb, var(--ink) 40%, transparent);
 }
 .anat-key span {
   font-weight: 600;
@@ -1103,7 +1156,7 @@ button:disabled {
   width: 9px;
   height: 9px;
   border-radius: 1px;
-  outline: 1px solid rgb(17 17 20 / 0.5);
+  outline: 1px solid color-mix(in srgb, var(--ink) 50%, transparent);
 }
 .anat-val {
   font-size: 13.5px;
@@ -1137,6 +1190,7 @@ button:disabled {
 }
 .kpi.is-warn {
   background: var(--yellow);
+  color: var(--on-yellow);
 }
 .kpi.is-warn .kpi-sub {
   color: #3d3200;
@@ -1366,6 +1420,7 @@ button:disabled {
   padding: 1px 6px;
   border-radius: 2px;
   background: var(--yellow);
+  color: var(--on-yellow);
   font-size: 11.5px;
   font-weight: 650;
 }
@@ -1578,10 +1633,16 @@ th .tree-chip {
     width: 40px;
     height: 40px;
   }
+  .theme-btn {
+    margin-left: auto;
+  }
   .topbar-cta {
     margin-left: auto;
     width: 42px;
     padding: 0;
+  }
+  .theme-btn + .topbar-cta {
+    margin-left: 0;
   }
   .topbar-cta span {
     display: none;
@@ -1615,7 +1676,7 @@ th .tree-chip {
   }
   .tabs button[aria-selected='true'] {
     background: var(--ink);
-    color: #fff;
+    color: var(--on-ink);
   }
   .work {
     display: block;
@@ -1645,7 +1706,8 @@ th .tree-chip {
     align-items: center;
     gap: 14px;
     padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
-    background: var(--ink);
+    background: var(--chrome);
+    border-top: 1px solid var(--line);
     color: #fff;
   }
   .dock > span {
@@ -1807,6 +1869,7 @@ th .tree-chip {
     font-size: 12px;
   }
   .topbar-cta,
+  .theme-btn,
   .nav,
   .tabs,
   .dock,

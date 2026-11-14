@@ -8,7 +8,7 @@ export const CORES_DOS_SOCIOS: CorDoSocio[] = [
   { fundo: '#2b6fd6', texto: '#ffffff', nome: 'azul' },
   { fundo: '#ffd23f', texto: '#111114', nome: 'amarelo' },
   { fundo: '#187a45', texto: '#ffffff', nome: 'verde' },
-  { fundo: '#111114', texto: '#ffffff', nome: 'preto' },
+  { fundo: 'var(--socio-preto)', texto: 'var(--socio-preto-texto)', nome: 'preto' },
   { fundo: '#8a1c2b', texto: '#ffffff', nome: 'vinho' },
   { fundo: '#6a4bb5', texto: '#ffffff', nome: 'roxo' },
   { fundo: '#e8892b', texto: '#111114', nome: 'laranja' },
@@ -31,3 +31,5 @@ export const CORES_DA_ANATOMIA = {
 
 export const COR_DA_TINTA = '#111114';
 export const COR_DO_PAPEL = '#ffffff';
+export const COR_DO_PAINEL = 'var(--panel)';
+export const COR_DO_TEXTO = 'var(--ink)';

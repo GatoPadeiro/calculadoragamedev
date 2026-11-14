@@ -3,7 +3,8 @@ import { Calculadora } from './paginas/calculadora/Calculadora';
 import { ComoCalculamos } from './paginas/ComoCalculamos';
 import { Sobre } from './paginas/Sobre';
 import { linkDoEstudio, LogoDoEstudio } from './interface/Marca';
-import { IconeLink } from './interface/icones';
+import { IconeLink, IconeLua, IconeSol } from './interface/icones';
+import { useTema } from './interface/useTema';
 import { enderecoCanonico, metadadosDaRota, PAGINAS, type Rota } from './paginas/metadadosDasPaginas';
 
 const CHAVE_DO_CENARIO_NA_SESSAO = 'cgd:endereco-do-cenario';
@@ -62,6 +63,16 @@ function BotaoCopiarLink({ copiarLink }: { copiarLink: () => Promise<boolean> })
   );
 }
 
+function BotaoDoTema() {
+  const [tema, alternarTema] = useTema();
+  const rotulo = tema === 'escuro' ? 'Usar tema claro' : 'Usar tema escuro';
+  return (
+    <button type="button" className="theme-btn" onClick={alternarTema} aria-label={rotulo} title={rotulo}>
+      {tema === 'escuro' ? <IconeSol /> : <IconeLua />}
+    </button>
+  );
+}
+
 export function App() {
   const { rota, navegar } = useNavegacao();
   const copiarLinkDaCalculadora = useRef<() => Promise<boolean>>(async () => false);
@@ -96,6 +107,7 @@ export function App() {
               </a>
             ))}
           </nav>
+          <BotaoDoTema />
           {rota === '/' && <BotaoCopiarLink copiarLink={() => copiarLinkDaCalculadora.current()} />}
         </div>
       </header>
